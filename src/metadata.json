@@ -1,0 +1,7 @@
+{
+  "name": "MFY Event Website",
+  "description": "A production-ready, multilingual event website with program scheduling, speaker profiles, and event gallery, featuring a sophisticated Space Cadet and Tan design system.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
