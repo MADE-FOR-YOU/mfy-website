@@ -1,48 +1,87 @@
 
 import type { Speaker, ProgramItem, GalleryItem } from '../types';
+import Mee from '../assets/images/Mee.jpeg';
+import Mariebelle from '../assets/images/Mariebelle.jpeg';
+import Franck from '../assets/images/Franck.png';
 
 export const speakers: Speaker[] = [
   {
     id: '1',
-    name: 'Alex Chen',
-    role: 'CEO of TechCorp',
-    bio: 'Alex is a visionary leader in the tech industry, known for his groundbreaking work in sustainable technology.',
-    image: 'https://picsum.photos/id/64/400/400',
+    name: 'Zambo Ayomba Mariebelle Petrova',
+    role: { 
+      en: 'CEO of MFY', 
+      fr: 'PDG de MFY' 
+    },
+    bio: { 
+      en: 'Dynamic CEO and passionate entrepreneur, Mariebelle is also an international volleyball player from Cameroon. With solid experience in leadership and management, she strives to create motivated teams and implement innovative strategies. Her sports background enriches her business vision, allowing her to promote excellence and develop sustainable solutions.',
+      fr: 'CEO dynamique et entrepreneur passionnée, Mariebelle est également une internationale volleyeuse du Cameroun. Avec une solide expérience en leadership et en gestion, elle s\'efforce de créer des équipes motivées et d\'implémenter des stratégies innovantes. Son parcours sportif enrichit sa vision d\'entreprise, lui permettant de promouvoir l\'excellence et de développer des solutions durables.'
+    },
+    image: Mariebelle
   },
   {
     id: '2',
-    name: 'Brenda Smith',
-    role: 'AI Ethicist',
-    bio: 'Brenda specializes in the ethical implications of artificial intelligence, advising governments globally.',
-    image: 'https://picsum.photos/id/65/400/400',
+    name: 'Bena Mee Malaika', 
+    role: { 
+      en: 'Project Manager', 
+      fr: 'Chef Projet' 
+    },
+    bio: { 
+      en: 'Mee is responsible for designing, structuring, and coordinating projects to turn ideas into concrete actions. "MFY positions itself as the heart of youth entrepreneurship, a place where ideas transform into meaningful projects".',
+      fr: 'Mee est chargée de concevoir, structurer et coordonner les projets, afin de transformer les idées en actions concrètes. "MFY se positionne comme le cœur de l\'entrepreneuriat jeune, un lieu où les idées se transforment en projets porteurs de sens".'
+    },
+    image: Mee
   },
   {
     id: '3',
-    name: 'Charles Davis',
-    role: 'Lead UX Designer, Innovate Co.',
-    bio: 'With over 15 years of experience, Charles has led design teams to create user-centric products reached by millions.',
-    image: 'https://picsum.photos/id/91/400/400',
+    name: 'Ekwane Franck',
+    role: { 
+      en: 'Trainer / Educator', 
+      fr: 'Formateur / Éducateur'
+    },
+    bio: { 
+      en: 'Franck is responsible for designing and delivering training programs about the project to stakeholders and participants.',
+      fr: 'Franck a pour but de concevoir et dispenser des formations sur le projet aux parties prenantes et aux participants.'
+    },
+    image: Franck
   },
   {
     id: '4',
     name: 'Diana Miller',
-    role: 'Quantum Computing Researcher',
-    bio: 'Dr. Miller is at the forefront of quantum computing, working to unlock its potential for complex problems.',
-    image: 'https://picsum.photos/id/103/400/400',
+    role: { 
+      en: 'Quantum Computing Researcher',
+      fr: 'Chercheuse en Informatique Quantique'
+    },
+    bio: { 
+      en: 'Dr. Miller is at the forefront of quantum computing, working to unlock its potential for complex problems.',
+      fr: 'Dr. Miller est à l\'avant-garde de l\'informatique quantique, travaillant à libérer son potentiel pour résoudre des problèmes complexes.'
+    },
+    image: 'https://picsum.photos/id/103/400/400'
   },
   {
     id: '5',
     name: 'Ethan Garcia',
-    role: 'Venture Capitalist',
-    bio: 'Ethan focuses on early-stage startups, helping to fund and mentor the next generation of tech entrepreneurs.',
-    image: 'https://picsum.photos/id/177/400/400',
+    role: { 
+      en: 'Venture Capitalist',
+      fr: 'Investisseur en Capital-Risque'
+    },
+    bio: { 
+      en: 'Ethan focuses on early-stage startups, helping to fund and mentor the next generation of tech entrepreneurs.',
+      fr: 'Ethan se concentre sur les startups en phase de démarrage, aidant à financer et à encadrer la prochaine génération d\'entrepreneurs technologiques.'
+    },
+    image: 'https://picsum.photos/id/177/400/400'
   },
   {
     id: '6',
     name: 'Fiona Wilson',
-    role: 'Author & Futurist',
-    bio: 'Fiona is a best-selling author whose work explores the intersection of technology, society, and the future.',
-    image: 'https://picsum.photos/id/129/400/400',
+    role: { 
+      en: 'Author & Futurist',
+      fr: 'Auteure & Futurologue'
+    },
+    bio: { 
+      en: 'Fiona is a best-selling author whose work explores the intersection of technology, society, and the future.',
+      fr: 'Fiona est une auteure à succès dont le travail explore l\'intersection entre la technologie, la société et l\'avenir.'
+    },
+    image: 'https://picsum.photos/id/129/400/400'
   }
 ];
 

@@ -1,29 +1,76 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Lightbulb, Calendar, Globe, Users, School, Rocket } from 'lucide-react';
+import { Lightbulb, Calendar, Rocket, Sparkles, Handshake, Heart } from 'lucide-react';
 import { speakers } from '../data/mockData';
-
-interface CoreValue {
-  icon: React.ReactElement<{ size?: number | string }>;
-  title: string;
-  desc: string;
-}
+import type { CoreValue } from '../types';
 
 const About: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const getTranslatedText = (text: { en: string; fr: string }) => {
+    return text[language] || text.en;
+  };
 
   const historyItems = [
-    { icon: <Lightbulb />, title: 'The Spark: MFY is Born', desc: 'A brief description of our founding vision and the initial idea.' },
-    { icon: <Calendar />, title: 'First Annual Event', desc: 'Details about our inaugural event and its impact.' },
-    { icon: <Globe />, title: 'Expanding Our Reach', desc: 'How we\'ve grown over the years to include a wider audience.' },
+    { 
+      icon: <Lightbulb />, 
+      title: t('history_spark_title'), 
+      desc: t('history_spark_desc')
+    },
+    { 
+      icon: <Calendar />, 
+      title: t('history_first_event_title'), 
+      desc: t('history_first_event_desc')
+    }
   ];
 
-  const coreValues:CoreValue[] = [
-    { icon: <Users />, title: 'Connect', desc: 'Bring together diverse minds to foster meaningful connections.' },
-    { icon: <School />, title: 'Inspire', desc: 'Ignite passion and creativity through inspiring talks and shared experiences.' },
-    { icon: <Rocket />, title: 'Empower', desc: 'Provide tools and platforms to turn their ideas into reality.' },
-  ];
+  const coreValues = [
+    { 
+      icon: <Sparkles className="w-8 h-8 mx-auto mb-4" />, 
+      title: { 
+        en: 'Promote', 
+        fr: 'Promouvoir' 
+      }, 
+      desc: { 
+        en: 'Promote youth entrepreneurship and creativity through innovative initiatives.', 
+        fr: 'Promouvoir l\'entrepreneuriat jeune et la créativité à travers des initiatives innovantes.' 
+      } 
+    },
+    { 
+      icon: <Handshake className="w-8 h-8 mx-auto mb-4" />, 
+      title: { 
+        en: 'Collaborate', 
+        fr: 'Collaborer' 
+      }, 
+      desc: { 
+        en: 'Provide a collaborative space and expertise sharing for young entrepreneurs.', 
+        fr: 'Fournir un espace de collaboration et de partage d\'expertise pour les jeunes entrepreneurs.' 
+      } 
+    },
+    { 
+      icon: <Rocket className="w-8 h-8 mx-auto mb-4" />, 
+      title: { 
+        en: 'Support', 
+        fr: 'Soutenir' 
+      }, 
+      desc: { 
+        en: 'Help young entrepreneurs develop and bring their projects to life.', 
+        fr: 'Aider les jeunes entrepreneurs à développer leurs projets et à les concrétiser.' 
+      } 
+    },
+    { 
+      icon: <Heart className="w-8 h-8 mx-auto mb-4" />, 
+      title: { 
+        en: 'Contribute', 
+        fr: 'Contribuer' 
+      }, 
+      desc: { 
+        en: 'Contribute to the economic and social development of Cameroon.', 
+        fr: 'Contribuer au développement économique et social du Cameroun.' 
+      } 
+    },
+  ] satisfies CoreValue[];
 
   return (
     <div className="py-20">
@@ -83,14 +130,14 @@ const About: React.FC = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {coreValues.map((value, idx) => (
-            <div key={idx} className="bg-white/5 border border-white/5 p-10 rounded-2xl hover:bg-white/10 transition-colors">
-              <div className="w-14 h-14 bg-neutral/10 text-neutral rounded-xl flex items-center justify-center mb-8">
-             {React.cloneElement(value.icon, { size: 32 })}
-              </div>
-              <h4 className="text-2xl font-bold text-white mb-4">{value.title}</h4>
-              <p className="text-white/50 leading-relaxed">{value.desc}</p>
-            </div>
+          {coreValues.map((value) => (
+                <div key={value.title.en} className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    {React.cloneElement(value.icon, { size: 24 })}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{getTranslatedText(value.title)}</h3>
+                  <p className="text-white/60">{getTranslatedText(value.desc)}</p>
+                </div>
           ))}
         </div>
       </section>
@@ -100,18 +147,30 @@ const About: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-black text-white mb-6">{t('team_title')}</h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            We are a dedicated group of volunteers and professionals passionate about creating an unforgettable experience.
+            {t('team_description')}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {speakers.slice(0, 3).map((member) => (
-            <div key={member.id} className="bg-secondary/10 p-8 rounded-2xl flex flex-col items-center text-center">
-              <img src={member.image} alt={member.name} className="w-32 h-32 rounded-full object-cover mb-6 border-4 border-white/10" />
-              <h4 className="text-xl font-bold text-white mb-1">{member.name}</h4>
-              <p className="text-neutral font-medium text-sm mb-4">{member.role}</p>
-              <p className="text-white/40 text-sm leading-relaxed">{member.bio.substring(0, 80)}...</p>
-            </div>
-          ))}
+          {speakers.slice(0, 3).map((member) => {
+            const name = (member.name);
+            const role = getTranslatedText(member.role);
+            const bio = getTranslatedText(member.bio);
+            
+            return (
+              <div key={member.id} className="bg-secondary/10 p-8 rounded-2xl flex flex-col items-center text-center">
+                <img 
+                  src={member.image} 
+                  alt={name} 
+                  className="w-32 h-32 rounded-full object-cover mb-6 border-4 border-white/10" 
+                />
+                <h4 className="text-xl font-bold text-white mb-1">{name}</h4>
+                <p className="text-neutral font-medium text-sm mb-4">{role}</p>
+                <p className="text-white/40 text-sm leading-relaxed">
+                  {bio.substring(0, 80)}...
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

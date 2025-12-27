@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 container mx-auto px-6 flex flex-col items-center text-center">
-        <h1 className="text-7xl md:text-[10rem] font-black text-white tracking-tighter leading-none mb-8 opacity-90">
+        <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-tight mb-6">
           {t('hero_title')}
         </h1>
         <h2 className="text-xl md:text-3xl font-medium text-neutral mb-6 max-w-2xl">
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
         </p>
 
         <p className="text-sm font-bold tracking-widest uppercase text-white/30 mb-8">
-          Event Starts In:
+          {t('hero_countdown_title')}
         </p>
         
         <Countdown />

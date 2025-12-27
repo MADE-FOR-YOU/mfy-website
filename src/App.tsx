@@ -10,6 +10,7 @@ import Speakers from './pages/Speakers';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Legal from './pages/Legal';
+import TermsOfService from './pages/TermsOfService';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -34,6 +35,7 @@ const App: React.FC = () => {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Legal />} />
+            <Route path="/terms" element={<TermsOfService />} />
           </Routes>
         </Layout>
       </Router>
