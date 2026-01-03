@@ -3,6 +3,7 @@ import type { Speaker, ProgramItem, GalleryItem } from '../types';
 import Mee from '../assets/images/Mee.jpeg';
 import Mariebelle from '../assets/images/Mariebelle.jpeg';
 import Franck from '../assets/images/Franck.png';
+import Myriam from '../assets/images/Myriam.jpeg'
 
 export const speakers: Speaker[] = [
   {
@@ -46,16 +47,16 @@ export const speakers: Speaker[] = [
   },
   {
     id: '4',
-    name: 'Diana Miller',
+    name: 'Guiolobo Myriam Eliora Nilie',
     role: { 
-      en: 'Quantum Computing Researcher',
-      fr: 'Chercheuse en Informatique Quantique'
+      en: 'Marketing and Management Manager',
+      fr: 'Responsable Marketing et management'
     },
     bio: { 
-      en: 'Dr. Miller is at the forefront of quantum computing, working to unlock its potential for complex problems.',
-      fr: 'Dr. Miller est à l\'avant-garde de l\'informatique quantique, travaillant à libérer son potentiel pour résoudre des problèmes complexes.'
+      en: 'Myriam is responsible for managing the marketing and management of the company. She shares and makes public the different videos and images. She enters into communication with other young entrepreneurs and seeks the maximum sponsors.',
+      fr: 'Myriam est responsable de la gestion du marketing et du management de l\'entreprise. Elle partage et  fait la publicité des différentes videos et images. Elle entre en communication avec d\'autres jeunes entrepreneurs et cherche le maximum de sponsors.'
     },
-    image: 'https://picsum.photos/id/103/400/400'
+    image: Myriam
   },
   {
     id: '5',
