@@ -4,6 +4,8 @@ import Mee from '../assets/images/Mee.jpeg';
 import Mariebelle from '../assets/images/Mariebelle.jpeg';
 import Franck from '../assets/images/Franck.png';
 import Myriam from '../assets/images/Myriam.jpeg'
+import Ako from '../assets/images/Ako.jpeg'
+
 
 export const speakers: Speaker[] = [
   {
@@ -60,30 +62,30 @@ export const speakers: Speaker[] = [
   },
   {
     id: '5',
-    name: 'Ethan Garcia',
+    name: 'Bekono Ako Franck',
     role: { 
-      en: 'Venture Capitalist',
-      fr: 'Investisseur en Capital-Risque'
+      en: 'Community Manager',
+      fr: 'Community Manager'
     },
     bio: { 
-      en: 'Ethan focuses on early-stage startups, helping to fund and mentor the next generation of tech entrepreneurs.',
-      fr: 'Ethan se concentre sur les startups en phase de démarrage, aidant à financer et à encadrer la prochaine génération d\'entrepreneurs technologiques.'
+      en: 'Franck is responsible for creating content, captivating attention in an infinite stream of information and manages the MFY community.',
+      fr: 'Franck est chargé de créer du contenu, de captiver l\'attention dans un flux d\'informations infini et de gérer la communauté de MFY.'
     },
-    image: 'https://picsum.photos/id/177/400/400'
+    image: Ako
   },
-  {
-    id: '6',
-    name: 'Fiona Wilson',
-    role: { 
-      en: 'Author & Futurist',
-      fr: 'Auteure & Futurologue'
-    },
-    bio: { 
-      en: 'Fiona is a best-selling author whose work explores the intersection of technology, society, and the future.',
-      fr: 'Fiona est une auteure à succès dont le travail explore l\'intersection entre la technologie, la société et l\'avenir.'
-    },
-    image: 'https://picsum.photos/id/129/400/400'
-  }
+  // {
+  //   id: '6',
+  //   name: 'Fiona Wilson',
+  //   role: { 
+  //     en: 'Author & Futurist',
+  //     fr: 'Auteure & Futurologue'
+  //   },
+  //   bio: { 
+  //     en: 'Fiona is a best-selling author whose work explores the intersection of technology, society, and the future.',
+  //     fr: 'Fiona est une auteure à succès dont le travail explore l\'intersection entre la technologie, la société et l\'avenir.'
+  //   },
+  //   image: 'https://picsum.photos/id/129/400/400'
+  // }
 ];
 
 export const program: ProgramItem[] = [

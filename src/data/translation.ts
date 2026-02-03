@@ -43,6 +43,8 @@ export const translations: TranslationStrings = {
   team_title: { en: 'The Organizing Team', fr: 'L\'Équipe d\'Organisation' },
   team_description: { en: 'We are a dedicated group and professionals passionate about creating unforgettable experiences.', fr: 'Nous sommes un groupe dévoué et de professionnels passionnés par la création des expériences inoubliables.' },
   cta_involved: { en: 'Get Involved', fr: 'Participer' },
+  cta_statement : { en: 'Ready to be part of the story?', fr: 'Prêt à faire partie de l\'histoire?'},
+  cta_involved_desc: { en: 'Join our community, attend an event, or volunteer. There are many ways to get involved with MFY.', fr: 'Rejoignez notre communauté, prenez part à un événement ou faites un don. Il y a de nombreuses façons de participer à MFY.' },
 
   // Program
   program_title: { en: 'Event Schedule', fr: 'Planning de l\'Événement' },

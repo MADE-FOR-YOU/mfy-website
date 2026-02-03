@@ -178,9 +178,9 @@ const About: React.FC = () => {
       <section className="container mx-auto px-6">
         <div className="bg-neutral rounded-3xl p-12 md:p-20 text-center text-primary relative overflow-hidden">
           <div className="absolute top-[-50%] left-[-10%] w-[60%] h-[200%] bg-white/10 rotate-12 pointer-events-none"></div>
-          <h2 className="text-3xl md:text-5xl font-black mb-6 relative">Ready to be part of the story?</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-6 relative">{t('cta_statement')}</h2>
           <p className="text-primary/70 text-lg mb-12 max-w-2xl mx-auto relative">
-            Join our community, attend an event, or volunteer. There are many ways to get involved with MFY.
+            {t('cta_involved_desc')}
           </p>
           <button className="bg-accent text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-accent/90 transition-all shadow-xl relative">
             {t('cta_involved')}
