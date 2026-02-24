@@ -1,15 +1,31 @@
-
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Send, MapPin, Mail, Phone, Instagram, Twitter, Linkedin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
-  const { t } = useLanguage();
-
-  const handleSubmit = (e: React.FormEvent) => {
+   const form = useRef<HTMLFormElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Form submitted successfully!');
-  };
+
+    if (form.current) {
+      setIsLoading(true);
+      emailjs.sendForm('service_nk1w7e9', 'template_gicmjqe', form.current, 'uS1-O4rcYVxMB6Z9E')
+        .then(() => {
+          console.log('Email sent successfully!');
+          alert ('Email sent successfully!');
+          form.current?.reset();
+        }, () => {
+          console.log('Email failed to send!');
+          alert ('Email failed to send!');
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }
+  const { t } = useLanguage();
 
   return (
     <div className="py-20">
@@ -20,11 +36,13 @@ const Contact: React.FC = () => {
 
       <section className="container mx-auto px-6 pb-32">
         <div className="max-w-4xl mx-auto bg-white/5 border border-white/5 rounded-[40px] p-8 md:p-16 shadow-2xl backdrop-blur-xl">
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form ref={form} onSubmit={sendEmail} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-widest text-white/40">{t('form_name')}</label>
                 <input
+                  id='name'
+                  name='name'
                   type="text"
                   placeholder="Enter your full name"
                   className="w-full bg-primary/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-neutral transition-colors"
@@ -34,6 +52,8 @@ const Contact: React.FC = () => {
               <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-widest text-white/40">{t('form_email')}</label>
                 <input
+                  id='email'
+                  name='email'
                   type="email"
                   placeholder="Enter your email address"
                   className="w-full bg-primary/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-neutral transition-colors"
@@ -44,6 +64,8 @@ const Contact: React.FC = () => {
             <div className="space-y-2">
               <label className="text-sm font-bold uppercase tracking-widest text-white/40">{t('form_message')}</label>
               <textarea
+                id='message'
+                name='message'
                 rows={6}
                 placeholder="Type your message here..."
                 className="w-full bg-primary/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-neutral transition-colors resize-none"
@@ -52,10 +74,20 @@ const Contact: React.FC = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-accent hover:bg-accent/90 text-white font-black py-5 rounded-2xl text-xl flex items-center justify-center gap-3 transition-all transform hover:scale-[1.01] shadow-xl shadow-accent/20"
+              disabled={isLoading}
+              className="w-full bg-accent hover:bg-accent/90 disabled:bg-accent/50 disabled:cursor-not-allowed text-white font-black py-5 rounded-2xl text-xl flex items-center justify-center gap-3 transition-all transform hover:scale-[1.01] disabled:scale-100 shadow-xl shadow-accent/20"
             >
-              <Send size={24} />
-              {t('form_submit')}
+              {isLoading ? (
+                <>
+                  <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  {t('form_sending') || 'Sending...'}
+                </>
+              ) : (
+                <>
+                  <Send size={24} />
+                  {t('form_submit')}
+                </>
+              )}
             </button>
           </form>
         </div>

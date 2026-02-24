@@ -103,6 +103,7 @@ export const translations: TranslationStrings = {
   form_email: { en: 'Email Address', fr: 'Adresse Email' },
   form_message: { en: 'Your Message', fr: 'Votre Message' },
   form_submit: { en: 'Send Message', fr: 'Envoyer' },
+  form_sending: { en: 'Sending...', fr: 'Envoi en cours...' },
   follow_us: { en: 'Follow Us', fr: 'Suivez-nous' },
   find_us: { en: 'Find Us', fr: 'Trouvez-nous' },
   
